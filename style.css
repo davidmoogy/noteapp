@@ -1,0 +1,166 @@
+/* Base Styles */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #e0e0e0;
+}
+
+.app-container {
+    background: rgba(34, 34, 34, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    transition: transform 0.3s, opacity 0.3s;
+    border: 1px solid #00ff00;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+/* Header */
+h1 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 3rem;
+    color: #00ff00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+/* Note Form Styles */
+.note-form {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 2px solid #00ff00;
+    border-radius: 12px;
+    resize: none;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    background: #1e1e1e;
+    color: #00ff00;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+textarea:focus {
+    border-color: #00bfae;
+    box-shadow: 0 0 15px rgba(0, 191, 174, 0.5);
+    outline: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    background-color: #00ff00;
+    color: #000;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.4);
+    position: relative;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 255, 0, 0.2);
+    transition: width 0.4s, height 0.4s;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+/* Notes Container Styles */
+.notes-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.note {
+    background: #1e1e1e;
+    border: 1px solid #00ff00;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards, glow 1.5s infinite alternate;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
+    }
+}
+
+.note:hover {
+    background-color: #121212;
+    box-shadow: 0 6px 15px rgba(0, 255, 0, 0.5);
+}
+
+.note p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+.note button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff0000;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+}
+
+.note button:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+}
